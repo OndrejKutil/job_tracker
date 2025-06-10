@@ -10,7 +10,8 @@ from auth import verify_api_key
 load_dotenv()
 
 HOST = os.getenv("HOST")
-PORT = int(os.getenv("PORT", 8000))  # Default to 8000 if not set
+PORT = int(os.getenv("PORT"))
+FRONTEND_URL = os.getenv("FRONTEND_URL")
 
 # Create FastAPI app instance
 app = FastAPI(
@@ -19,13 +20,16 @@ app = FastAPI(
 )
 
 # Add CORS middleware to allow frontend connections
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # In production, specify your frontend URL
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+if FRONTEND_URL:
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=[FRONTEND_URL],
+        allow_credentials=True,
+        allow_methods=["GET", "POST", "PUT", "DELETE"],
+        allow_headers=["Authorization", "Content-Type"],
+    )
+else:
+    raise RuntimeError("FRONTEND_URL environment variable is not set.")
 
 # Include routers
 app.include_router(application.router, prefix="/application", tags=["application"])
