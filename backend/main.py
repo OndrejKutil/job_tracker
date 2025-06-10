@@ -2,11 +2,15 @@ from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from routers import application
 from dotenv import load_dotenv
+import os
 from auth import verify_api_key
 
 # Load environment variables from .env file
 # This must be called before importing auth module
 load_dotenv()
+
+HOST = os.getenv("HOST")
+PORT = int(os.getenv("PORT", 8000))  # Default to 8000 if not set
 
 # Create FastAPI app instance
 app = FastAPI(
@@ -44,4 +48,4 @@ async def version(api_key: str = Depends(verify_api_key)):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host=HOST, port=PORT)
