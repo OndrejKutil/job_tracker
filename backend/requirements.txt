@@ -1,23 +1,23 @@
 # Web Framework
-fastapi==0.109.0
-uvicorn[standard]==0.27.0
+fastapi
+uvicorn[standard]
 
 # Data Validation
-pydantic==2.6.0
-pydantic-settings==2.1.0
+pydantic
+pydantic-settings
 
 # File Upload Support
-python-multipart==0.0.6
+python-multipart
 
 # Environment Variables
-python-dotenv==1.0.0
+python-dotenv
 
 # Database & External Services
-supabase==2.3.0
-postgrest==0.15.0
+supabase
+postgrest
 
 # HTTP Client
-requests==2.31.0
+requests
 
 # Date Utilities
-python-dateutil==2.8.2
+python-dateutil
