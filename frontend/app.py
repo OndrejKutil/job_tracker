@@ -290,6 +290,12 @@ def login_page():
     
     tab1, tab2 = st.tabs(["Login", "Register"])
     
+    # get health endpoint of backend to spin up the backend if not running
+    try:
+        requests.get(f"{BACKEND_URL}/health")
+    except Exception as e:
+        pass  # Ignore health check errors, we just want to ensure the backend is running
+
     with tab1:
         st.header("Login")
         email_login = st.text_input("Email")
