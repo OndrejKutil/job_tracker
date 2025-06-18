@@ -1,26 +1,23 @@
-# Backend Requirements - FastAPI Job Tracker API
-# Core FastAPI framework and server
-fastapi==0.104.1
-uvicorn[standard]==0.24.0
+# Web Framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
 
-# Data validation and serialization
-pydantic==2.5.1
+# Data Validation
+pydantic==2.6.0
+pydantic-settings==2.1.0
 
-# File upload support (multipart forms)
+# File Upload Support
 python-multipart==0.0.6
 
-# Environment variables management
+# Environment Variables
 python-dotenv==1.0.0
 
-# Database client
-supabase==2.0.2
-postgrest==0.13.0
+# Database & External Services
+supabase==2.3.0
+postgrest==0.15.0
 
-# Optional: Data processing (if needed for analytics)
-# pandas==2.1.3
-
-# HTTP client for external API calls
+# HTTP Client
 requests==2.31.0
 
-# Additional utilities
+# Date Utilities
 python-dateutil==2.8.2
