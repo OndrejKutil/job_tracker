@@ -1,0 +1,5 @@
+# Streamlit Frontend Requirements
+streamlit==1.28.1
+supabase==2.0.2
+requests==2.31.0
+python-dateutil==2.8.2

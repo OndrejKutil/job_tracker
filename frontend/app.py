@@ -1,16 +1,13 @@
 import streamlit as st
 import supabase
-from dotenv import load_dotenv
-import os
 import requests
 from datetime import datetime
 
-# Load environment variables from .env file
-load_dotenv()
-DATABASE_URL = os.getenv("PROJECT_URL")
-DATABASE_KEY = os.getenv("ANON_KEY")
-API_KEY = os.getenv("API_KEY")  # Add API key for backend requests
-BACKEND_URL = os.getenv("BACKEND_URL")  # Backend URL
+# Load secrets from Streamlit secrets management
+DATABASE_URL = st.secrets["supabase"]["PROJECT_URL"]
+DATABASE_KEY = st.secrets["supabase"]["ANON_KEY"]
+API_KEY = st.secrets["backend"]["API_KEY"]
+BACKEND_URL = st.secrets["backend"]["BACKEND_URL"]
 
 # Create Supabase client
 supabase_client = supabase.create_client(DATABASE_URL, DATABASE_KEY)
