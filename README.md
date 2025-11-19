@@ -1,3 +1,5 @@
+Currently no longer maintained and functional
+
 # 📂 Job Tracker
 
 A full-stack web app for tracking job applications, built to showcase real-world skills in data, backend development, and deployment.  
